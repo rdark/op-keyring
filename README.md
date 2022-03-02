@@ -17,7 +17,7 @@ At a high level, it:
 
 ## Security considerations
 
-[gnome-keyring][gnome_keyring_doc] uses dbus for communication. Where the keyring is unlocked, any process running as the logged-in user can access objects within the keyring, unless restricted by AppArmor is similar. By default, most distributions provide little; or more commonly; no restriction to keyring access. This is somewhat negated by the session token only being valid for 30 minutes, however the risk is valid, depending on your threat model
+[gnome-keyring][gnome_keyring_doc] uses dbus for communication. Where the keyring is unlocked, any process running as the logged-in user can access objects within the keyring, unless restricted by AppArmor or similar. By default, most distributions provide little; or more commonly; no restriction to keyring access. This is somewhat negated by the session token only being valid for 30 minutes, however the risk is valid, depending on your threat model. Note that this same risk exists for other keyring implementations such as gnupg-keyring etc.
 
 ## TODO
 
