@@ -52,8 +52,9 @@ func runOpCmd(opPath string, serviceName string, userName string, cmdArgs []stri
 
 	if err != nil {
 		invalidTokenRegex := regexp.MustCompile("[iI]nvalid session token\n$")
-		sessionExpiredRegex := regexp.MustCompile("[Ss]ession expired, sign in to create a new session\n$")
-		if invalidTokenRegex.Match(stderr.Bytes()) || sessionExpiredRegex.Match(stderr.Bytes()) {
+		sessionExpiredRegex := regexp.MustCompile("[sS]ession expired, sign in to create a new session\n$")
+		notSignedInRegex := regexp.MustCompile("[yY]ou are not currently signed in. [pP]lease run `op signin --help` for instructions\n$")
+		if invalidTokenRegex.Match(stderr.Bytes()) || sessionExpiredRegex.Match(stderr.Bytes()) || notSignedInRegex.Match(stderr.Bytes()) {
 			err = keyring.Delete(serviceName, userName)
 			if err != nil {
 				return err
