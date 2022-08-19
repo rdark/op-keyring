@@ -1,6 +1,12 @@
 # op-keyring
 
-Simple wrapper for [1password CLI][op_getting_started] to integrate with [gnome-keyring][gnome_keyring_doc].
+# Update:
+
+[1Password CLI V2](https://developer.1password.com/docs/cli/get-started/) has fixed much of the usability issues inherent in V1. The CLI now integrates with the desktop app, as well as polkit and PAM (which former of which also addresses the below Security considerations). I'd recommend that you upgrade to V2 instead of using this project.
+
+# Historical Info
+
+Simple wrapper for [1password CLI][op_getting_started] v1. to integrate with [gnome-keyring][gnome_keyring_doc].
 
 The usual way of running `op` is to first `eval $(op signin my)` within the current shell so that an environment variable containing the session token is populated. However, this results in the following friction:
 
